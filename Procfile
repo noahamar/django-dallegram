@@ -1,1 +1,1 @@
-web gunicorn django_dallegram.wsgi:application --log-file
+web gunicorn django_dallegram.wsgi:application --log-file -
