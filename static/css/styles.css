@@ -1,3 +1,196 @@
-h1 {
-  color: purple;
+/* Base */
+html {
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+body {
+  margin: 0;
+  background-color: #FAFAFB;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:active {
+  opacity: 0.5;
+  transform: translateY(1px);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 12px 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.logo {
+  height: 30px;
+}
+
+/* Card */
+.card {
+  border-radius: 6px;
+  padding: 14px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Content */
+.content-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 30px;
+}
+.main-column {
+  width: 500px;
+}
+.suggested-column {
+  width: 300px;
+}
+.prompt {
+  display: flex;
+  border-radius: 6px;
+  padding: 14px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+.prompt input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent
+}
+.prompt button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+}
+.posts {
+  margin-top: 30px;
+}
+a.username {
+  color: black;
+  text-decoration: none;
+}
+
+/* Post */
+.post {
+  width: 500px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+}
+.post-user {
+  display: flex;
+  align-items: center;
+}
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.user-username-date {
+  margin-left: 10px;
+}
+.follow-btn {
+  appearance: none;
+  background-color: #0095F6;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 7px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+.post-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: #e7e7e7;
+}
+.post-footer {
+  padding: 14px;
+}
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.post-actions-group {
+  display: flex;
+  gap: 10px;
+}
+.post-action-btn {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.like-btn {
+  background-image: url("/static/assets/like-icon.svg");
+  width: 28px;
+}
+.comment-btn {
+  background-image: url("/static/assets/comment-icon.svg");
+}
+.save-btn {
+  background-image: url("/static/assets/save-icon.svg");
+}
+.post-likes {
+  margin-bottom: 10px;
+}
+.post-caption {
+  margin-bottom: 4px;
+}
+
+/* Suggested users */
+.suggested-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.suggested-user:last-child {
+  margin-bottom: 0;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.user-info {
+  margin-left: 10px;
+}
+.username {
+
+}
+.user-display-name {
+  white-space: nowrap;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

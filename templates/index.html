@@ -1,30 +1,74 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <title>Dall•e•gram</title>
-</head>
-
-<body>
-  <header>
-    <h1>Dall•e•gram</h1>
-    <p>Welcome to Dall•e•gram!</p>
-  </header>
-
-  <main>
-    <p>Post 1</p>
-  </main>
-
-  <footer>
-    <p>Made for fun • Not associated with OpenAI • Fork on GitHub</p>
-  </footer>
-
-  <script src="{% static 'js/main.js' %}"></script>
-</body>
-
-</html>
+{% extends "base.html" %} {% block title %}Dall•e•gram | Index{% endblock %} {%
+{% block content %}
+<div class="content-container">
+  <div class="main-column">
+    <div class="prompt">
+      <input
+        type="text"
+        class="prompt-input"
+        placeholder="Enter a detailed description of an image"
+      />
+      <button class="generate-btn">Generate</button>
+    </div>
+    <div class="posts">
+      {% for i in '0123456789'|make_list %}
+      <div class="post">
+        <div class="post-header">
+          <div class="post-user">
+            <a class="user-avatar" href="#" />
+            <div class="user-username-date">
+              <a class="username" href="#"><b>salvadordali</b></a>
+              <span> • </span>
+              <a class="post-date" href="#">10m</a>
+            </div>
+          </div>
+          <button class="follow-btn">Follow</button>
+        </div>
+        <img class="post-image" src="https://placehold.co/500x500" />
+        <div class="post-footer">
+          <div class="post-actions">
+            <div class="post-actions-group">
+              <button class="post-action-btn like-btn" />
+              <button class="post-action-btn comment-btn" />
+            </div>
+            <div class="post-actions-group">
+              <button class="post-action-btn save-btn" />
+            </div>
+          </div>
+          <div class="post-likes"><b>3 likes</b></div>
+          <div class="post-caption">
+            <a class="username" href="#"><b>salvadordali</b></a>
+            <span>
+              An expressive oil painting of a basketball player dunking,
+              depicted as an explosion of a nebula
+            </span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="suggested-column">
+    <div class="card">
+      <div class="card-header">
+        <b>Suggested for you</b>
+        <a href="#">See All</a>
+      </div>
+      <div class="suggested-users">
+        {% for i in '0123'|make_list %}
+        <div class="suggested-user">
+          <div class="user">
+            <a class="user-avatar" href="#" />
+            <div class="user-info">
+              <a class="username" href="#"><b>basquiat</b></a>
+              <div class="user-display-name">Jean-Michel Basquiat</div>
+            </div>
+          </div>
+          <button class="follow-btn">Follow</button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
