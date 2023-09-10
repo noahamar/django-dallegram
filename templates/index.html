@@ -1,30 +1,48 @@
-{% extends "base.html" %} {% block title %}Dall•e•gram | Index{% endblock %} {%
+{% extends "base.html" %}
+{% load shortnaturaltime %}
+
 {% block content %}
 <div class="content-container">
   <div class="main-column">
-    <div class="prompt">
+    <form class="prompt-form" method="POST">
+      {% csrf_token %}
       <input
         type="text"
         class="prompt-input"
+        name="prompt"
         placeholder="Enter a detailed description of an image"
       />
-      <button class="generate-btn">Generate</button>
-    </div>
+      <input class="generate-btn" type="submit" value="Generate" />
+    </form>
     <div class="posts">
-      {% for i in '0123456789'|make_list %}
+      {% for post in posts %}
       <div class="post">
         <div class="post-header">
           <div class="post-user">
-            <a class="user-avatar" href="#" />
+            <a 
+              class="user-avatar" 
+              href="#" 
+              style="background-image: url({% if post.profile.profile_image %}
+              {{ post.profile.profile_image.url }}
+              {% endif %})" 
+            />
             <div class="user-username-date">
-              <a class="username" href="#"><b>salvadordali</b></a>
+              <a class="username" href="#"><b>{{ post.profile.user.username }}</b></a>
               <span> • </span>
-              <a class="post-date" href="#">10m</a>
+              <a class="post-date" href="#">
+                {{ post.date | shortnaturaltime }}
+              </a>
             </div>
           </div>
           <button class="follow-btn">Follow</button>
         </div>
-        <img class="post-image" src="https://placehold.co/500x500" />
+        <img 
+          class="post-image" 
+          src="{% if post.image %}
+          {{ post.image.url }}
+          {% else %}
+          https://picsum.photos/seed/{{ post.id }}/500/500
+          {% endif %}" />
         <div class="post-footer">
           <div class="post-actions">
             <div class="post-actions-group">
@@ -35,12 +53,11 @@
               <button class="post-action-btn save-btn" />
             </div>
           </div>
-          <div class="post-likes"><b>3 likes</b></div>
+          <div class="post-likes"><b>0 likes</b></div>
           <div class="post-caption">
-            <a class="username" href="#"><b>salvadordali</b></a>
+            <a class="username" href="#"><b>{{ post.profile.user.username }}</b></a>
             <span>
-              An expressive oil painting of a basketball player dunking,
-              depicted as an explosion of a nebula
+              {{ post.caption }}
             </span>
           </div>
         </div>
@@ -55,13 +72,19 @@
         <a href="#">See All</a>
       </div>
       <div class="suggested-users">
-        {% for i in '0123'|make_list %}
+        {% for profile in suggested_profiles %}
         <div class="suggested-user">
           <div class="user">
-            <a class="user-avatar" href="#" />
+            <a 
+              class="user-avatar" 
+              href="#" 
+              style="background-image: url({% if profile.profile_image %}
+              {{ profile.profile_image.url }}
+              {% endif %})" 
+            />
             <div class="user-info">
-              <a class="username" href="#"><b>basquiat</b></a>
-              <div class="user-display-name">Jean-Michel Basquiat</div>
+              <a class="username" href="#"><b>{{ profile.user.username }}</b></a>
+              <div class="user-display-name">{{ profile.display_name }}</div>
             </div>
           </div>
           <button class="follow-btn">Follow</button>
@@ -69,6 +92,13 @@
         {% endfor %}
       </div>
     </div>
+    <footer>
+      <span>Not associated with Meta or OpenAI.</span>
+      <br />
+      <a href="https://github.com/noahamar/django-dallegram">
+        <b>Fork on GitHub</b>
+      </a>
+    </footer>
   </div>
 </div>
 {% endblock %}

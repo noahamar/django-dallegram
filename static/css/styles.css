@@ -14,7 +14,7 @@ a {
 button {
   cursor: pointer;
 }
-button:active {
+button:active, input[type="submit"]:active {
   opacity: 0.5;
   transform: translateY(1px);
 }
@@ -57,20 +57,20 @@ header {
 .suggested-column {
   width: 300px;
 }
-.prompt {
+.prompt-form {
   display: flex;
   border-radius: 6px;
   padding: 14px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
 }
-.prompt input {
+.prompt-form input[type="text"] {
   flex: 1;
   border: none;
   outline: none;
   background-color: transparent
 }
-.prompt button {
+.prompt-form input[type="submit"] {
   border: none;
   outline: none;
   background-color: transparent;
@@ -106,9 +106,10 @@ a.username {
 .user-avatar {
   width: 40px;
   height: 40px;
-  background-color: gray;
+  background-color: #e7e7e7;
   border-radius: 20px;
   flex-shrink: 0;
+  background-size: cover;
 }
 .user-username-date {
   margin-left: 10px;
@@ -193,4 +194,12 @@ a.username {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Footer */
+footer {
+  margin-top: 14px;
+  text-align: center;
+  opacity: 0.4;
+  line-height: 1.5rem;
 }
