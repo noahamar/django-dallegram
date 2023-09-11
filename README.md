@@ -4,7 +4,7 @@
 
 Dall•e•gram is a [Django](https://github.com/django/django)-based AI image generator website in the style of Instagram.
 
-The website uses the OpenAI DALL•E API to generate images.
+The website uses the OpenAI [DALL•E](https://openai.com/dall-e-2) API to generate images.
 
 [Here's a demo](https://django-dallegram-e10a0fded064.herokuapp.com/).
 
